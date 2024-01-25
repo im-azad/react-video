@@ -11,7 +11,7 @@ function Footer() {
           >
             YouTube Channel
           </a>
-        </div>
+      </div>
       </div>
     </section>
   );
