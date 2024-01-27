@@ -20,7 +20,7 @@ function Video() {
     dispatch(fetchVideo(videoId));
   }, [videoId, dispatch]);
 
-  const { link, title } = video || {};
+  const { link, title, id, tags } = video || {};
 
   // decided what to render
   let content = null;
@@ -40,7 +40,7 @@ function Video() {
           <Player link={link} title={title} />
           <VideoDescription />
         </div>
-        <RelatedVideoList />
+        <RelatedVideoList currentVideoId={id} tags={tags} />
       </div>
     );
   }

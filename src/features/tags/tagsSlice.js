@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getTags } from "./tagsAPI";
 
-/** 
+/**
  * Initial state for Tags
-*/
+ */
 
 const initialState = {
   tags: [],
@@ -25,7 +25,7 @@ export const fetchTags = createAsyncThunk("tags/fetchTags", async () => {
  * Video slice
  */
 
-const TagsSLice = createSlice({
+const tagsSLice = createSlice({
   name: "Tags",
   initialState,
   extraReducers: (builder) => {
@@ -47,4 +47,4 @@ const TagsSLice = createSlice({
   },
 });
 
-export default TagsSLice.reducer;
+export default tagsSLice.reducer;
