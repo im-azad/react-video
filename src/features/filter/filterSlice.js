@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-/**
- * Initial state for Tags
- */
-
 const initialState = {
   tags: [],
   search: "",
@@ -14,6 +10,9 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     tagSelected: (state, action) => {
+      state.tags.push(action.payload);
+    },
+    tagRemoved: (state, action) => {
       const indexToRemove = state.tags.indexOf(action.payload);
 
       if (indexToRemove !== -1) {
@@ -27,4 +26,4 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { tagSelected, searched } = filterSlice.actions;
+export const { tagSelected, tagRemoved, searched } = filterSlice.actions;
