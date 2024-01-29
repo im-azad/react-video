@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useMatch, useNavigate } from "react-router-dom";
 import { searched } from "../../features/filter/filterSlice";
-
 export default function Search() {
   const dispatch = useDispatch();
   const { search } = useSelector((state) => state.filter);
 
   const [input, setInput] = useState(search);
+  const match = useMatch("/");
+  const navigate = useNavigate();
 
+  /**
+   * Handles form submission, dispatches search action, and redirects if not on home page.
+   *
+   * @param {Object} e - event object
+   * @return {void}
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(searched(input));
+
+    // if user is not home page, redirect to home
+    if (!match) {
+      navigate("/");
+    }
   };
 
   return (
